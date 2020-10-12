@@ -1,0 +1,19 @@
+$mainFont: 'Lato', sans-serif;
+$secondaryFont: 'Oswald', sans-serif;
+
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;1,900&family=Oswald:wght@700&display=swap');
+
+$primaryClr: #414f6b;
+$secondaryClr: #b0b4be;
+
+$showImage: true;
+$homeImage: url(../images/home-bg-min.jpg);
+$backgroundOpacity: 0.85;
+
+$fwNormal: 400;
+$fwBold: 700;
+
+$min_vw: 320px;
+$max_vw: 2560px;
+$min_font: 12px;
+$max_font: 50px;

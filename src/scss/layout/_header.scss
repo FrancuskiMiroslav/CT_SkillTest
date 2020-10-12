@@ -1,0 +1,90 @@
+.hero {
+	background-image: url(../../assets/images/hero.png);
+	background-position: center top;
+	background-size: cover;
+	min-height: 100vh;
+}
+
+.header {
+	@include wrapper(960, 30);
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 10px 30px;
+	min-height: 75px;
+	flex-wrap: wrap;
+
+	@include breakpoint-max(600) {
+		padding: 10px;
+	}
+
+	&.sticky {
+		position: sticky;
+		top: 0;
+		width: 100%;
+		background-color: rgba($color: #ffffff, $alpha: 0.95);
+		z-index: 50;
+	}
+
+	&__nav-list {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		counter-reset: nav;
+	}
+
+	&__nav-list-item {
+		font-size: 12px;
+		line-height: 20px;
+		margin-left: 40px;
+		text-transform: uppercase;
+		font-weight: 700;
+		position: relative;
+		padding-left: 20px;
+
+		&::after {
+			position: absolute;
+			content: '';
+			border-bottom: 2px solid #ffffff;
+			height: 3px;
+			width: 100%;
+			bottom: -4px;
+			left: 0;
+		}
+
+		&::before {
+			position: absolute;
+			left: 0px;
+			counter-increment: nav;
+			content: counter(nav, decimal-leading-zero) '. ';
+			color: #ffffff;
+		}
+	}
+
+	&__nav-list-link {
+		color: #ffffff;
+		transition: 0.5s all ease-in-out;
+		padding: 5px;
+
+		&:hover {
+			background-color: #ffffff;
+			color: $primaryClr;
+		}
+	}
+
+	.primary {
+		color: $primaryClr;
+		&::after {
+			border-bottom: 2px solid $primaryClr;
+		}
+
+		&::before {
+			color: $primaryClr;
+		}
+
+		a:hover {
+			background-color: $primaryClr;
+			color: #ffffff;
+		}
+	}
+}

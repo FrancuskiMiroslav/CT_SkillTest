@@ -1,0 +1,169 @@
+.tabccordion {
+	&__header {
+		background-color: $primaryClr;
+		min-height: 40px;
+		@include breakpoint-max(600) {
+			display: none;
+		}
+	}
+
+	&__list {
+		@include wrapper(960, 30);
+		height: inherit;
+		display: flex;
+		line-height: 40px;
+		z-index: 50;
+	}
+
+	&__list-btn {
+		cursor: pointer;
+	}
+
+	&__list-btn.active {
+		background-color: $secondaryClr;
+		button {
+			color: $primaryClr;
+		}
+	}
+
+	&__tab {
+		background-position: center bottom;
+		background-size: cover;
+		min-height: 550px;
+		opacity: 0;
+		position: absolute;
+		width: 100%;
+		transition: 0.5s ease-in-out all;
+		overflow: hidden;
+
+		@include breakpoint-max(600) {
+			min-height: 50px;
+			position: relative;
+			opacity: 1;
+		}
+	}
+
+	&__tab.active {
+		opacity: 1;
+
+		table {
+			transform: translateX(0px);
+		}
+	}
+
+	&__tab.tab1 {
+		background-image: url(../../assets/images/tab1.jpg);
+	}
+
+	&__tab.tab2 {
+		background-image: url(../../assets/images/tab2.jpg);
+	}
+
+	&__tab-inner {
+		@include wrapper(960, 30);
+		min-height: inherit;
+		display: flex;
+		transition: 0.5s ease-in-out all;
+		@include breakpoint-max(600) {
+			max-height: 0;
+			min-height: 0;
+		}
+	}
+
+	&__tab-inner.open {
+		max-height: auto;
+		min-height: calc(100vh - 50px);
+	}
+
+	&__table {
+		padding: 25px 40px;
+		margin: 0 30px;
+		background-color: rgba($color: #ffffff, $alpha: 0.6);
+		margin-top: 10%;
+		transform: translateX(-5000px);
+		transition: 0.5s ease-in-out all;
+
+		@include breakpoint-max(600) {
+			padding: 5px 10px;
+			margin: 0 10px;
+			margin-top: 15%;
+			height: inherit;
+			font-size: 14px;
+		}
+
+		tr {
+			display: flex;
+			min-height: 30px;
+			min-width: 275px;
+			justify-content: space-between;
+
+			@include breakpoint-max(600) {
+				min-width: 220px;
+			}
+		}
+	}
+
+	&__thead {
+		text-align: left;
+		font-size: 32px;
+		color: $primaryClr;
+		font-family: $secondaryFont;
+		text-transform: uppercase;
+	}
+
+	.accordion-btn {
+		display: none;
+		@include breakpoint-max(600) {
+			display: block;
+			background-color: $primaryClr;
+			position: relative;
+
+			&:hover,
+			&:active,
+			&:focus {
+				background-color: $secondaryClr;
+				color: $primaryClr;
+
+				&::before,
+				&::after,
+				&.open {
+					background: rgba($color: $primaryClr, $alpha: 0.6);
+				}
+			}
+
+			&::before,
+			&::after {
+				content: '';
+				position: absolute;
+				width: 18px;
+				right: 0;
+				top: 50%;
+				height: 3px;
+				background: rgba($color: $secondaryClr, $alpha: 1);
+				transition: all 0.5s ease-in-out;
+			}
+
+			&::before {
+				transform: rotate(45deg) translate(-10px, 10px);
+			}
+
+			&::after {
+				transform: rotate(130deg) translate(2px, 3px);
+			}
+
+			&.open::before {
+				transform: rotate(220deg) translate(2px, -2px);
+				background: $primaryClr;
+			}
+			&.open::after {
+				transform: rotate(-45deg) translate(-10px, -10px);
+				background: $primaryClr;
+			}
+
+			&.open {
+				background-color: $secondaryClr;
+				color: $primaryClr;
+			}
+		}
+	}
+}

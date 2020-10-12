@@ -1,0 +1,26 @@
+.footer {
+	background-color: $primaryClr;
+	color: rgba($color: $secondaryClr, $alpha: 0.4);
+	border-top: 1px solid $secondaryClr;
+
+	&__inner-wrap {
+		@include wrapper(960, 30);
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		min-height: 75px;
+		padding: 30px;
+
+		@include breakpoint-max(600) {
+			flex-direction: column;
+			gap: 20px;
+		}
+	}
+
+	&__copyright {
+		font-size: 12px;
+		font-weight: bold;
+		font-style: italic;
+		text-transform: uppercase;
+	}
+}

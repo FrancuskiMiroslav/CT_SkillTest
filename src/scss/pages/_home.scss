@@ -1,0 +1,104 @@
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-weight: 700;
+	font-family: $secondaryFont;
+}
+
+.main {
+	counter-reset: section;
+}
+
+.content {
+	background-position: center;
+	background-size: cover;
+	display: flex;
+	flex-direction: column;
+
+	&__inner-wrapper {
+		@include wrapper(960, 30);
+		@include breakpoint-max(600) {
+			padding: 0;
+			margin: 0;
+		}
+	}
+
+	&__title {
+		text-transform: uppercase;
+		font-size: 32px;
+		color: $primaryClr;
+		position: relative;
+		padding: 0 132px;
+		margin-bottom: 30px;
+
+		&:before {
+			font-size: 135px;
+			position: absolute;
+			left: 0px;
+			bottom: -56px;
+			counter-increment: section;
+			content: counter(section, decimal-leading-zero) '. ';
+			color: rgba($color: $primaryClr, $alpha: 0.6);
+		}
+	}
+
+	&__text {
+		font-size: 16px;
+
+		@include breakpoint-max(600) {
+			background-color: rgba($color: #ffffff, $alpha: 0.6);
+			padding: 20px !important;
+		}
+	}
+}
+
+.content-one {
+	background-image: url(../../assets/images/carouselBG.jpg);
+	background-position: center;
+	background-size: cover;
+	min-height: 900px;
+	display: flex;
+	flex-direction: column;
+
+	&__inner-wrapper {
+		padding-top: 130px;
+	}
+
+	&__title {
+		padding: 0 132px;
+		margin-bottom: 30px;
+	}
+
+	&__text {
+		padding: 0 70px;
+	}
+}
+
+.content-two {
+	background-position: center;
+	background-size: cover;
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+	@include breakpoint-max(600) {
+		min-height: auto;
+	}
+
+	&__inner-wrapper {
+		padding-top: 90px;
+		display: flex;
+		@include breakpoint-max(600) {
+			flex-direction: column;
+		}
+	}
+
+	&__title {
+		padding-left: 150px;
+		padding-right: 30px;
+		margin-bottom: 30px;
+		z-index: -5;
+	}
+}

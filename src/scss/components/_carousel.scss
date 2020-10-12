@@ -1,0 +1,18 @@
+.content-one {
+	.carousel {
+		margin-top: auto;
+		background-color: rgba($color: $primaryClr, $alpha: 0.8);
+
+		&__container {
+			@include wrapper(960, 30);
+			padding: 25px;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+
+			img {
+				cursor: grab;
+			}
+		}
+	}
+}

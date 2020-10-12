@@ -1,0 +1,43 @@
+.btn {
+	border: none;
+	color: $secondaryClr;
+	text-decoration: none;
+	background-color: transparent;
+	padding: 10px 20px;
+	font-size: 20px;
+	height: inherit;
+	text-transform: uppercase;
+	font-family: $secondaryFont;
+	text-align: center;
+	outline: none;
+	transition: background-color 0.3s ease;
+	cursor: pointer;
+
+	@include breakpoint-max(600) {
+		width: 100%;
+	}
+
+	&:focus {
+		color: $primaryClr;
+		text-decoration: none;
+		background-color: $secondaryClr;
+	}
+
+	&:hover {
+		background-color: lighten($secondaryClr, 5%);
+		color: $primaryClr;
+		text-decoration: underline;
+	}
+
+	&:active {
+		color: $primaryClr;
+		text-decoration: underline;
+		background-color: $secondaryClr;
+	}
+
+	&.active {
+		color: $primaryClr;
+		text-decoration: underline;
+		background-color: $secondaryClr;
+	}
+}
